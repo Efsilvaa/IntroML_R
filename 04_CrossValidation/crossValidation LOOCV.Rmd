@@ -1,0 +1,118 @@
+---
+title: "Introdução à Machine Learning"
+author: "Prof. Eduardo F. SIlva"
+output:
+  html_document: default
+---
+
+
+#Cross validation com CARET - LOOV
+
+```{r setup, echo=FALSE}
+
+projDir <- "C:/Users/Eduardo/Google Drive/UFSC EPS/Outros Cursos/Machine Learning Stats/Aulas/AulasR/"
+
+#Carregando LIBRARIES (Pacotes)
+##lib para gráficos
+library(ggplot2)
+
+##lib para ML + Cross validation
+library(caret)
+
+##Função para impressão da dados em grid
+source(paste(projDir,"multPlotFunction.R",sep=""))
+
+#carregando os dados
+#Usando Rdata ao inves do script
+#source("CarregamentoDados/loadHousingSmall.R")
+load(paste(projDir,"Dados_RData/housingSmall.Rdata",sep = ""))
+```
+
+
+## Visualizando os dados LOOCV N=1
+```{r}
+# Visualizando os dados LOOCV N=1
+hr_train <- hr[-1,]
+hr_test <- hr[1,]
+g <- ggplot(data = hr_train,aes(x = area,y = preco))
+#pontos de treinamento
+g <- g +  geom_point(colour = "Blue",size = 3) +
+  # Pontos de test
+  geom_point(data = hr_test,
+             aes(x = area,y = preco),
+             colour = "red", size = 3) +
+  #Labels 
+  labs( title = "Preços de Venda de imóveis",
+        y = "Preço (x R$1000,00)",
+        x = "Área (x 100m2)" )
+g
+```
+
+##Regressao_Simples
+###LOOCV (Primeiro registro)
+```{r}
+hr_lm <- lm(data = hr_train, preco ~ area)
+
+###Alternativa 2 (Usando ggplot e geom_abline() )
+
+g <-  g + geom_abline(intercept = hr_lm$coef[1], slope = hr_lm$coef[2],
+                       color = "Blue", size = 1)
+
+#Plotando segmentos
+prev <- predict(hr_lm,hr_test)
+prev
+df <- hr_test
+df["prev"] = prev
+
+g + geom_segment(aes(x = area, y = prev,xend = area, yend = preco ),
+                  color = "Red",
+                  data = df)
+
+
+```
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+
+#Imprimindo gráficos em grid
+nr <- nrow(hr)
+lg <- vector("list", nr)
+for(i in 1:nr){
+  hr_train <- hr[-i,]
+  hr_test <- hr[i,]
+  g <- ggplot(data = hr_train,aes(x = area,y = preco))
+  g <- g +  geom_point(colour = "Blue",size = 3) +
+    # Pontos de TEST
+    geom_point(data = hr_test,
+               aes(x = area,y = preco),
+               colour = "red", size = 3) +
+    #Labels 
+    labs( title = "Preços de Venda de imóveis",
+          y = "Preço (x R$1000,00)",
+          x = "Área (x 100m2)" ) +
+    
+    stat_smooth(method = lm, se = FALSE, formula = y ~ x,
+              colour = "Black",linetype = "solid")
+  lg[[i]] <- g
+}
+
+multiplot(plotlist = lg,cols = 4)
+```
+
+
+
+
+## Método LOOCV Usando CARET 
+```{r}
+### Defina training control
+train_control <- trainControl(method = "LOOCV")
+
+# modelo baseado no treinamento usando _train_control_
+model <- train(preco~area, data=hr, trControl=train_control, method="lm")
+# summarize results
+print(model)
+
+mse <- model$results$RMSE^2
+mse
+```
