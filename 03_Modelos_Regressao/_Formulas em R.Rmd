@@ -1,0 +1,98 @@
+---
+title: "Como especificar a relação entre as variáveis no Modelo e R"
+output: html_notebook
+---
+
+#Como definir a fórmula do modelo em R
+Temos que relacionar nossa variável dependente com a variáveis independentes.
+A formula usada para representar nosso modelo é:
+
+> variável Dependente ~ variáveis independentes
+
+No contexto de *machine learning* fica melhor se escrevermos:
+
+>	variável resposta (alvo) ~ Variáveis preditoras 
+
+Em uma modelo simples podemos escrever `Y ~ X`, que pode ser lido como Y __é modelado em função de __ X.
+
+
+Essa fórmula pode então ser submetida a diferentes modelos, paramétricos ou não paramétricos.  A formula só especifica quem depende de quem e qual o papel de cada variável na modelagem.
+
+
+Por exemplo, se quisermos formular uma regressão linear, ou melhor um modelo linear, usaremos a função `lm(formula, dados)`.
+
+
+Assim, fórmula `Y ~ X` será usada na função abaixo onde a variável fit receberá os valores preditos pelo modelo.
+
+> `fit <- lm(Y ~ X)`
+
+
+Matematicamente, é como se estivéssemos escrevendo:
+
+> $Y_i = \beta_0 + \beta_1 X_i + \epsilon_i$
+
+
+Para incluir outras variáveis explicativas no modelo, basta acrescentá-las com o sinal de `+`.
+
+Por exemplo, se a variável *Z* também for incluída no modelo como uma nova variável independente, a formula ficaria `Y ~ X + Z`, e a função para realizar a regressão linear múltipla seria 
+
+> `fit <- lm(Y ~ X + Z)`
+
+correspondendo na notação matemática à
+
+> $Y_i = \beta_0 + \beta_1 X_i +\beta_2Z_i + \epsilon_i$
+
+
+Note que o sinal + na notação matemática possui um significado diferente quando usado na função em R que explicitar a formula a ser usada no modelo escolhido.  Vale frisar que essa fórmula é a mesma para a maioria dos modelos em R, sejam eles paramétricos ou não paramétricos.  
+
+
+A tabela abaixo apresenta algumas das várias maneiras de representar a relação entre a variável dependente e seus preditores em um modelo em R.
+
+Símbolo |	Exemplo |	Significado
+--------|---------|-------------------------------------------------------
++		    |+X       |incluir a variável X
+-|		 -X|		delete a variável X
+:|		X:Z|		inclua a interação entre essas duas vaiáveis
+*|		X*Y| 		inclua as variáveis e as interações entre elas
+^| 	(X + Z + W)^3|	inclua cada uma das variáveis e suas interações até o nível 3
+I()|		 I(X*Z)| 		inclua a variável como indicado, no caso X multiplicado por Z
+1| 		X - 1|		Coeficiente linear (*intercept*): delete o *intercept* (regressão pela origem) 
+
+Existe sempre mais de uma maneira para especificar o mesmo modelo. Por exemplo, as formulas abaixo são equivalentes:
+
+> Y ~ X + Z + W + X:Z + X:W + Z:W + X:Z:W
+
+> Y ~ X * Z * W 
+
+> Y ~ (X + Z + W)^3 
+
+Correspondendo ao modelo 
+
+> $Y_i = \beta_0 + \beta_1X_i + \beta_2Z_i + \beta_3W_i + \beta_4X_iZ_i + \beta_5XiWi + \beta_6Z_iW_i + \beta_7X_iZ_iW_i + \epsilon_i$
+
+Do mesmo modo:
+
+>Y ~ X + Z + W + X:Z + X:W + Z:W 
+
+>Y ~ X * Z * W - X:Z:W 
+
+>Y ~ (X + Z + W)^2
+
+Que correspondem ao modelo:
+
+> $Y_i = \beta_0 + \beta_1X_i + \beta_2Z_i + \beta_3W_i + \beta_4X_iZ_i + \beta_5XiWi + \beta_6Z_iW_i +  \epsilon_i$
+
+Diferindo do anterior apenas pela exclusão da interação entre as três variáveis.
+
+Finalmente, quando os dados estão em um *data frame*, podemos simplificar usando `.` para indicar a inclusão de todas as variáveis (sem interações). Essa opção é muito interessante para ser usada juntamente com outros simbolos.
+
+
+Por exemplo, considerando um *data frame* D com as colunas Y, X, Z, and W. A função `fit <- lm(Y ~ ., data = D)` é aquivalente a `fit <- lm(Y ~ X + Z + W, data = D)`.
+
+
+Similarmente , `fit <- lm(Y ~ .-W, data = D)`  é equivalente a `fit <- lm(Y ~ X + Z)`.
+
+E a função `fit <- lm(Y ~ .*W, data = D)` é equivalente a `fit <- lm(Y ~ X + Z + W + X:W + Z:W)`.
+
+
+>O uso de tal notação facilita a análise da vários modelos sem a necessidade de reconfigurar as colunas dos seus dados (ou da sua planilha, já que no MS excel as colunas precisam ser contíguas)
