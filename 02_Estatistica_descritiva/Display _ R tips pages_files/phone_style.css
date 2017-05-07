@@ -1,0 +1,133 @@
+@import url("style.css");
+
+
+/* landscape */
+@media screen and (min-width: 321px) {
+  #wrapper {
+    margin: 0 auto;
+    width: 90%;
+    width: 400px;
+    overflow: auto;
+  }
+  
+  #access,
+  #access .menu-header,
+  div.menu,
+  #colophon,
+  #branding,
+  #main,
+  #footer {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  #branding  {
+    overflow:hidden;
+  }
+  
+  #site-title,
+  #site-info,
+  #site-description,
+  #site-generator   {
+    width: 100%;
+    clear: left;
+    float: left;
+    margin-top: 0;
+    padding-top:0;
+    margin-bottom: 0;
+    padding-bottom:0;
+  }
+  
+
+  #container {
+    float: left;
+    width: 100%;
+    overflow: auto;
+  }
+  #content {
+    width: 99%;
+    margin: 0 0px 0 0px;
+  }
+
+  .alignleft, img.alignleft, .alignright, img.alignright {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    float: none;
+  }
+
+  #primary,
+  #secondary {
+    clear: both;
+    float: left;
+    overflow: hidden;
+    width: 99%; 
+	}
+}
+
+
+/* portrait */
+@media screen and (max-width: 320px) {
+  #wrapper {
+    margin: 0 auto;
+    width: 300px;
+    overflow: auto;
+  }
+  
+  #access,
+  #access .menu-header,
+  div.menu,
+  #colophon,
+  #branding,
+  #main,
+  #footer {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  #branding  {
+    overflow:hidden;
+  }
+  
+  #site-title,
+  #site-description,
+  #site-info,
+  #site-generator   {
+    width: 100%;
+    clear: left;
+    float: left;
+    margin-top: 0;
+    padding-top:0;
+    margin-bottom: 0;
+    padding-bottom:0;
+  }
+  
+
+  #container {
+    float: left;
+    width: 100%;
+    overflow: auto;
+  }
+  #content {
+    width: 99%;
+    margin: 0 0px 0 0px;
+  }
+
+  .alignleft, img.alignleft, .alignright, img.alignright {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    float: none;
+  }
+
+  #primary,
+  #secondary {
+    clear: both;
+    float: left;
+    overflow: hidden;
+    width: 99%; 
+	}
+}
+

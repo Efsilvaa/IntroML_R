@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://www.zoology.ubc.ca/~schluter/R/display/ -->
+<html lang="en-US" hola_ext_inject="disabled"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Display | R tips pages</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./Display _ R tips pages_files/style.css">
+<link rel="pingback" href="https://www.zoology.ubc.ca/~schluter/R/xmlrpc.php">
+<link rel="alternate" type="application/rss+xml" title="R tips pages » Feed" href="https://www.zoology.ubc.ca/~schluter/R/feed/">
+<link rel="alternate" type="application/rss+xml" title="R tips pages » Comments Feed" href="https://www.zoology.ubc.ca/~schluter/R/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/www.zoology.ubc.ca\/~schluter\/R\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.3"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Display _ R tips pages_files/wp-emoji-release.min.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<script type="text/javascript" src="./Display _ R tips pages_files/jquery.js"></script>
+<script type="text/javascript" src="./Display _ R tips pages_files/jquery-migrate.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.zoology.ubc.ca/~schluter/R/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.zoology.ubc.ca/~schluter/R/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.3">
+<link rel="canonical" href="./Display _ R tips pages_files/Display _ R tips pages.html">
+<link rel="shortlink" href="https://www.zoology.ubc.ca/~schluter/R/?p=126">
+<link rel="stylesheet" href="./Display _ R tips pages_files/style(1).css" media="screen and (min-device-width: 481px)" type="text/css">
+    <link type="text/css" rel="stylesheet" media="only screen and (max-device-width: 480px)" href="./Display _ R tips pages_files/phone_style.css">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, 
+ maximum-scale=1.0"><style type="text/css" media="all">
+/* <![CDATA[ */
+@import url("https://www.zoology.ubc.ca/~schluter/R/wp-content/plugins/wp-table-reloaded/css/plugin.css?ver=1.9.4");
+@import url("https://www.zoology.ubc.ca/~schluter/R/wp-content/plugins/wp-table-reloaded/css/datatables.css?ver=1.9.4");
+/* ]]> */
+</style><style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #586689; }
+</style>
+</head>
+
+<body class="page page-id-126 page-template-default custom-background">
+<div id="wrapper" class="hfeed">
+	<div id="header">
+		<div id="masthead">
+			<div id="branding" role="banner">
+								<div id="site-title">
+					<span>
+						<a href="https://www.zoology.ubc.ca/~schluter/R/" title="R tips pages" rel="home">R tips pages</a>
+					</span>
+				</div>
+				<div id="site-description">D. Schluter, University of BC</div>
+
+							</div><!-- #branding -->
+
+			<div id="access" role="navigation">
+			  				<div class="skip-link screen-reader-text"><a href="https://www.zoology.ubc.ca/~schluter/R/display/#content" title="Skip to content">Skip to content</a></div>
+								<div class="menu-header"><ul id="menu-rtips" class="menu"><li id="menu-item-101" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-101"><a href="https://www.zoology.ubc.ca/~schluter/R/">Start</a></li>
+<li id="menu-item-591" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-591"><a href="https://www.zoology.ubc.ca/~schluter/R/calculate/">Vector</a></li>
+<li id="menu-item-121" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-121"><a href="https://www.zoology.ubc.ca/~schluter/R/data/">Data frame</a></li>
+<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-126 current_page_item menu-item-136"><a href="./Display _ R tips pages_files/Display _ R tips pages.html">Display</a></li>
+<li id="menu-item-151" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-151"><a href="https://www.zoology.ubc.ca/~schluter/R/plan/">Plan</a></li>
+<li id="menu-item-166" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-166"><a href="https://www.zoology.ubc.ca/~schluter/R/fit-model/">Fit model</a></li>
+<li id="menu-item-181" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-181"><a href="https://www.zoology.ubc.ca/~schluter/R/probability/">Probability</a></li>
+<li id="menu-item-201" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-201"><a href="https://www.zoology.ubc.ca/~schluter/R/resample/">Resample</a></li>
+<li id="menu-item-2641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2641"><a href="https://www.zoology.ubc.ca/~schluter/R/meta/">Meta</a></li>
+<li id="menu-item-216" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-216"><a href="https://www.zoology.ubc.ca/~schluter/R/multivariate/">Multivariate</a></li>
+<li id="menu-item-231" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-231"><a href="https://www.zoology.ubc.ca/~schluter/R/phylogenetic/">Phylo</a></li>
+<li id="menu-item-1361" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1361"><a href="https://www.zoology.ubc.ca/~bio501/R/">Biol 501</a></li>
+<li id="menu-item-1391" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1391"><a href="https://www.zoology.ubc.ca/~bio501/R/workshops/">Workshops</a></li>
+</ul></div>			</div><!-- #access -->
+		</div><!-- #masthead -->
+	</div><!-- #header -->
+
+	<div id="main">
+
+		<div id="container">
+			<div id="content" role="main">
+
+			
+
+				<div id="post-126" class="post-126 page type-page status-publish hentry">
+											<h1 class="entry-title">Display</h1>
+					
+					<div class="entry-content">
+						<h1>Graphs and tables </h1>
+<p>This page provides tips and recommendations for making graphs and tables in R. Updated and revised frequently (click the reload button on your browser to make sure you are seeing the most recent version).</p>
+<hr style="width: 100%; height: 2px;">
+<h2><a name="table1"></a>Frequency tables</h2>
+<p>These commands generate tables of frequencies or summary statistics. In the examples below, “x” is a single numeric variable. “A” is a categorical variable (factor or character variable) identifying different groups; “B” is a second such variable.</p>
+<h3>Frequency table</h3>
+<p>Frequency table for a categorical variable A,</p>
+<pre>table(A)</pre>
+<h3>Contingency table</h3>
+<p>The following command generates a frequency table for two categorical variables, A and B. The command can be extended to three or more variables.</p>
+<pre>table(A, B)</pre>
+<p>To include the row and column sums in the contingency table, use the following commands.</p>
+<pre>mytable &lt;- table(A, B)
+addmargins(mytable, margin = c(1,2), FUN = sum, quiet = TRUE)
+</pre>
+<hr>
+<h2><a name="tapply"></a>Tables of descriptive statistics</h2>
+<p>The command "tapply" creates tables of results. The function argument can be any statistical function that can be applied to a single numeric variable (e.g., mean, standard deviation, median, etc). </p>
+<p>When creating tables for display purposes, such as in a manuscript, you can round the results to a fixed number of decimal places. For example, to round a table of means "z" to two decimal places, use</p>
+<pre>round(z,2)
+</pre>
+<h3>Table display for one variable</h3>
+<p>For example, here is how to generate a one-way table of group means. "A" is the factor or character variable identifying the groups. </p>
+<pre>tapply(x, INDEX = A, FUN = mean, na.rm = TRUE)
+</pre>
+<p>The <code>na.rm</code> option removes missing values before computing (otherwise the mean returns "NA" if there are missing values). <code>na.rm</code> is not a <code>tapply</code> option -- rather it is an option for the function <code>mean</code>. In general you can pass optional arguments to FUN by including them immediately afterward. </p>
+<p>The following shortcut works if the arguments are listed strictly in the order shown.</p>
+<pre>tapply(x, A, mean, na.rm=  TRUE)
+</pre>
+<p>The command for a one-way table of group standard deviations is similar.</p>
+<pre>tapply(x, A, sd, na.rm = TRUE)
+</pre>
+<h3>Table display for two variables</h3>
+<p>The following example produces a two-way table of group medians. "x" is a numeric variable, whereas A and B are categorical variables (factors or character variables).</p>
+<pre>tapply(x, INDEX = list(A,B), FUN = median)
+</pre>
+<hr>
+<h2><a name="graphs"></a>Drawing graphs in R</h2>
+<p>It is important to examine data visually before analyzing the numbers. Your eye is a great pattern detector and can easily pick out outliers, errors, and associations in data.</p>
+<p>There are many different types of graphs. Here's we've grouped them according to whether their purpose is to display frequencies of a single variable, or association between variables.</p>
+<p>(Trellis graphics require special treatment. These tools in R generate panels of plots and are especially good for repeating the same type of graph on multiple different groups or subsets of the data. Trellis graphics are produced by a separate package with its own commands and options and so will be dealt with separately at the end.)</p>
+<h3>Generic command options</h3>
+<p>Many (but not all -- try them) of the basic plotting commands will accept the same options to control axis limits, labeling, print a title, change the plotting symbol, change the size of the plotting symbols and text, and change the line types. Here are some of the most frequently modified options. Remember, these are not commands, but options, so use them inside the parentheses of a plotting command. If you are not sure whether a given option applies in your case, try it -- the worst that could happen is you get an error message, or R ignores it.</p>
+<pre>main = "Eureka"    # add a title above the graph
+pch = 16           # change plot symbol to a filled circle
+col = "red"        # change the fill color
+xlim = c(-10,10)   # change limits of the x-axis (horizontal axis)
+ylim = c(0,100)    # change limits of the y-axis (vertical axis)
+lty = 2            # change line type to dashed
+las = 2            # rotate axis labels to be perpendicular to axis
+cex = 1.5          # magnify the plotting symbols 1.5-fold
+xlab = "Body size" # label for the x-axis
+ylab = "Frequency" # label for the y-axis
+</pre>
+<p>To find out all the options (there are many), enter</p>
+<pre>?par
+</pre>
+<h3>Plot more than one graph in the same window</h3>
+<p>To plot more than one graph in the same graph window, precede your plotting command with one of the following commands. Reissue the command if you want to restart at the top of the window.</p>
+<pre>par(mfrow = c(2,2)) # sets up a window for 4 plots, 2 by 2.
+par(mfrow = c(3,1)) # sets up a single column of 3 plots.
+par(mfrow = c(1,1)) # returns to a 1 plot per window layout</pre>
+<h3>Save graph as a pdf file</h3>
+<p>After drawing your plot, you can use the menu (File -&gt; Save As) to save to a pdf file. Or, draw the graph on a pdf device to begin with:</p>
+<pre>pdf( file = "mygraph.pdf")     # opens the pdf device for plotting
+...                            # Issue your R commands here to generate plot
+dev.off()                      # closes the device when you are done
+</pre>
+<hr>
+<h2><a name="graphs1"></a>Graphs to display a single variable</h2>
+<p>These methods display the frequency distribution of a single variable.</p>
+<h3>Histogram - show frequency distribution for a numeric variable</h3>
+<p>The basic command, </p>
+<pre>hist(x, col = "navy", right = FALSE)
+</pre>
+<p>The <code>right = FALSE</code> option causes all the histogram intervals, or bins, except the last one to be left-closed. In other words, the value 1 would appear in the interval 1-2 rather than in the interval 0-1, which seems to be the convention (unless 1 is the upper limit of the right-most bin, in which case R puts it in the bin 0-1; use the <code>include.lowest</code> option to control that!).</p>
+<p>Better yet, to control the width and number of histogram bins, use the <code>breaks</code> option. For example, the following command creates a series of bins 1 unit wide between the limits 0 and 6 (make sure all the data fall between these limits or R will complain), </p>
+<pre>hist(x, breaks = seq(0,6,by=1), right = FALSE)
+</pre>
+<p>Notice that a value of exactly 6, the upper limit of breaks, will appear in the interval 5-6. This behavior is restricted to the rightmost bin. To prevent this from happening, increase the upper limit of the breaks by 1:</p>
+<pre>hist(x, breaks = seq(0,7,by=1), right = FALSE)
+</pre>
+<p>To display probability density instead of raw frequencies</p>
+<pre>hist(x, freq = FALSE)
+</pre>
+<p>Superimpose a normal density curve<br>
+[to add]</p>
+<h3>Bar graph - show frequency distribution for a categorical (grouping) variable</h3>
+<p>In the following examples, "A" is a categorical variable, with each element corresponding to the category for a different individual or replicate. (A can be a factor or a character variable.)  The basic command is below. The <code>table</code> command tallies up the frequency of individuals in each category and then <code>barplot</code> plots it.</p>
+<pre>barplot(table(A))   # makes a bar graph
+</pre>
+<p>R will arrange the categories in alphabetical order. If you want to fix a specific order, specify this in a factor command. For example, if the variable A has three groups "a", "b" and "c", fix a preferred order as follows</p>
+<pre>A &lt;- factor(A, levels = c("c","a","b"))
+</pre>
+<p>To plot the bars in order of decreasing frequency, (a good idea for bar graphs)</p>
+<pre>barplot(sort(table(A), decreasing = TRUE))
+</pre>
+<p>If you already have the frequencies for each category, then modify as follows. Let "A" be a variable that lists each named category exactly once. Let "y" be the variable containing the corresponding frequency of observations in each category. </p>
+<pre>barplot(y, names.arg = A)
+</pre>
+<p>Some other options to include in your barplot command to control appearance (enter "?barplot" for more options)</p>
+<pre>col = "green"                    # fill color
+space = 0.1                      # adjust space between bars
+cex.names = 0.8                  # shrink labels
+names.arg = c("Hi","Ho","He")    # set new names under bars
+</pre>
+<p><small></small></p>
+<h3>Normal quantile plot - compare data to the normal distribution</h3>
+<p>"x" is a numeric variable.</p>
+<pre>qqnorm(x)
+qqline(x)  # adds line through first and third quartiles
+</pre>
+<hr>
+<h2><a name="graphs2"></a>Graphs to display association between two variables</h2>
+<p>The appropriate graph depends on which variables are numeric or categorical.</p>
+<h3>Mosaic plot - association between two categorical variables</h3>
+<p>A and B can be factors or character variables. </p>
+<pre>mosaicplot(table(A,B), col = TRUE, las = 2, cex.axis = 0.8)
+</pre>
+<p>The "las" option makes the labels perpendicular to the axes so that they don't overlap. The "cex.axis" is optional and is used to adjust the size of the labels (provide a number that is a multiple of the default size).</p>
+<h3>Grouped bar graph - association between two categorical variables</h3>
+<p>A and B can be factors or character variables. </p>
+<pre>barplot(table(A,B), beside = TRUE)
+</pre>
+<p>The "space" option controls spacing between bars. Two values are needed: the first controls spacing between bars within each group of A, and the second controls the space between the bars from different groups of A. The first number should be smaller than the second number.</p>
+<pre>barplot(table(A,B), beside = TRUE, space = c(.1,.3))
+</pre>
+<p>Other options:</p>
+<pre>barplot(table(A,B), beside = TRUE, cex.names = 0.8)    # adj label size
+barplot(table(A,B), beside = TRUE, legend.text = TRUE) # add legend
+</pre>
+<h3>Box plots - association between a categorical  and a numeric variable</h3>
+<p>Generates a box plot for the numeric variable <code>y</code> separately for every group identified in the categorical variable <code>A</code> (<code>A</code> can be a factor or character variable).</p>
+<pre>boxplot(y ~ A)      # formula method: response ~ explanatory
+</pre>
+<p>Options to include in the boxplot command to control appearance (enter ?boxplot to see more)</p>
+<pre>cex.axis = 0.8       # reduce size of axis labels (to fit them onto figure)
+boxwex = .5          # adjust width of boxes
+varwidth = TRUE      # widths proportional to sqrt(n)
+</pre>
+<h3>Strip chart - association between a categorical and a numeric variable</h3>
+<p>A strip chart can be used instead of a box plot when the number of data points is not large.</p>
+<pre>stripchart(y ~ A, vertical = TRUE)      # formula method
+</pre>
+<p>You can use <code>jitter</code> to reduce overlap of points. Changing the value of <code>jitter</code> adjusts how much noise is added. Change label size with <code>cex.axis</code>, and change symbol with <code>pch</code>.</p>
+<pre>stripchart(y ~ A, vertical = TRUE, method = "jitter", jitter = 0.2)
+stripchart(y ~ A, vertical = TRUE, cex.axis = 0.8, pch = 1)
+stripchart(y ~ A, vertical = TRUE, pch = "-")
+</pre>
+<p>Option <code>add = TRUE</code> adds points to a preexisting stripchart. For example, to use different symbols according to unique values of category variable <code>B</code>, try the following. The first of the three commands below set up the plot but withhold the points. The following two commands add the points for two groups of data points.</p>
+<pre>stripchart(y ~ A, vertical = TRUE, method = "jitter", pch = "")
+stripchart(y[B=="b1"] ~ A[B=="b1"], method = "jitter", pch = 1, add = TRUE)
+stripchart(y[B=="b2"] ~ A[B=="b2"], method = "jitter", pch = 16, add = TRUE)
+</pre>
+<p>You can add points or lines to a strip chart by taking advantage of the fact that category variable plotted along the x-axis also has a numerical interpretation. For example, to plot a single point at the mean of <code>y</code> for all four categories of a variable <code>A</code>, use</p>
+<pre>stripchart(y ~ A, vertical = TRUE, method = "jitter", pch = 1)
+points( c(1,2,3,4), tapply(y, A, mean), pch=16)
+</pre>
+<p>You can offset the positions of the points by tweaking the values of x,</p>
+<pre>points( c(1,2,3,4) + 0.2, tapply(y, A, mean), pch = 16)
+</pre>
+<p>Adding lines to a plot is similar. This is a simple way to add error bars to a strip chart. For example, either of the following commands adds a vertical line from <code>y</code>=5 to <code>y</code>=10 at the position of the first group in a strip chart,</p>
+<pre>lines( c(1,1), c(5,10))                 # vertical line
+lines(  c(5,10) ~ c(1,1))               # same using formula method
+arrows(1, 5, 1, 10, angle=90, code=3)   # same with line ends
+</pre>
+<h3>Scatter plot - association between two numeric variables</h3>
+<p>Here's how to to produce a scatter plot for two numeric variables, <code>x</code> and <code>y</code>. The variable listed first in the command is plotted along the horizontal (<code>x</code>) axis.</p>
+<pre>plot(y ~ x)                    # a scatter plot if x and y are numeric; formula method
+plot(x, y)                     # alternate method to produce the same scatter plot
+plot(y ~ x, pch = 16, col = 2) # change symbol to a colored dot
+</pre>
+<p>Add a smooth curve through the data to estimate the shape of the relationship between y and x. The <code>lowess</code> command uses locally weighted regression to accomplish this. "Local" means that y is predicted for each x using only data in the vicinity of that x, rather than all the data. The size of the vicinity is controlled by the option "f", which is a proportion between 0 (very narrow vicinity) and 1 (uses all the data). Try different values of "f" to best capture the relationship. The default is <code>f = 2/3</code>. </p>
+<pre>plot(y ~ x)
+x1 &lt;- x[order(x)]
+y1 &lt;- y[order(x)]
+lines(lowess(x1, y1, f = 0.5))
+</pre>
+<p>The <code>order</code> command sorts the values of x and y by x. This ensures that the segments of the <code>lowess</code> curve are drawn in order, sequentially from left to right. </p>
+<p>Add a line to the scatter plot</p>
+<pre>plot(y ~ x)
+abline(a = myintercept, b = myslope)   # specify values for a and b (intercept and slope)
+abline(lm(y ~ x))                      # add the least squares regression line
+</pre>
+<p>Plot multiple groups with different symbols. You can use <code>pch</code> to vary the symbol, or <code>col</code> to vary the color, or vary both at the same time. <code>x</code> and <code>y</code> are numeric variables, whereas <code>A</code> is a categorical variable identifying groups. If <code>A</code> is already a factor (check using <code>is.factor</code> command) you can use just <code>A</code> instead of <code>factor(A)</code> in the commands below.</p>
+<pre>plot(y ~ x, pch = as.numeric(factor(A)), col = as.numeric(factor(A)))
+</pre>
+<p>You'll want to add a legend too so that you can identify the groups. Issue the following command and then click on the plot (inside the plot region) with your cursor to place the legend. If <code>A</code> is already a factor (check using <code>is.factor</code> command) you can use just <code>A</code> instead of <code>factor(A)</code> in these commands.</p>
+<pre>plot(y ~ x, pch = as.numeric(factor(A)))
+legend( locator(1), legend = as.character(levels(factor(A))), 
+         pch = 1:length(levels(factor(A))) )
+</pre>
+<p>Replace <code>pch =</code> with <code>col =</code> in the plot command and the legend command if you want to identify groups by color instead of symbol, or include both color and symbol in both commands.</p>
+<p>Here are two ways to identify individual points on a scatter plot. The first just redraws the scatter plot and then adds the row number next to it (you can use another variable instead). This can get noisy if there are a lot of data points.</p>
+<pre>plot(y ~ x)
+text(x, y, labels = seq_along(x), pos = 1, cex = 0.5)</pre>
+<p>The second method uses the cursor to click those few points on the plot you want identified. This version prints the row number when you click a point. You can change that by setting the <code>labels</code> option to a character variable that identifies them too.</p>
+<pre>plot(y ~ x)
+identify(x, y, labels = seq_along(x))</pre>
+<h3>Line plot - display a sequence of measurements</h3>
+<p>Here's how to plot a sequence of x,y points and connect the dots with lines. This is especially useful when the x-variable represents a series of points in time or across a spatial gradient. The plot command below is the same as in the case of a scatter plot. The <code>lines</code> command adds lines to the same plot and connects the dots. The <code>order(x)</code> bit is to connect the dots from left to right, in case the x-values are unsorted.</p>
+<pre>plot(y ~ x, pch=16)
+lines(y[order(x)] ~ x[order(x)])
+</pre>
+<p>To draw a line plot without any dots,</p>
+<pre>plot(y[order(x)] ~ x[order(x)], type = "l")</pre>
+<p>You can change line type, thickness, and color using the <code>lty</code>, <code>lwd</code>, and <code>col</code> options. Enter <code>?par</code> to learn more about these line options.</p>
+<pre>lines(y[order(x)] ~ x[order(x)], lty = 3, lwd = 2, col = "red")
+</pre>
+<hr>
+<h2><a name="graphs3"></a>Graphs to display multiple variables</h2>
+<h3>Interaction plots</h3>
+<p>Interaction plots are useful for displaying how the mean of a response variable <code>y</code> changes between the levels of two categorical variables, <code>A</code> and <code>B</code>. The graph is especially useful for determine whether an interaction is present between two factors <code>A</code> and <code>B</code> in a factorial experiment, or between a factor <code>A</code> and a blocking variable <code>B</code>. If the lines are parallel then there is no interaction.</p>
+<pre>interaction.plot(A, B, y)</pre>
+<p>The levels of the variable listed first (here, <code>A</code>) will be displayed along the x-axis of the plot. The y-axis will then display the mean of y separately for each category of the second variable, <code>B</code>.  Variations on this command include</p>
+<pre>interaction.plot(B, A, y)                            # Put B along x-axis instead
+interaction.plot(A, B, y, fun = median)              # median of y
+interaction.plot(A, B, y, col = 1:length(unique(B))) # color the lines
+interaction.plot(A, B, y, las=2)                     # more room for A's labels
+</pre>
+<p>A disadvantage of this plot is that it does not show the data. Use <code>stripchart</code> instead for this purpose. </p>
+<h3>Overlay scatter plots for multiple groups</h3>
+<p>To draw a scatter plot between two numeric variables x and y separately for each category of a third variable <code>A</code>, </p>
+<pre>plot(y ~ x, pch = as.numeric(factor(A)))
+</pre>
+<p>To add a legend that identifies the groups, issue the following command and then click the cursor inside the plot region to place the legend.</p>
+<pre>legend(locator(1), legend = as.character(levels(factor(A))), 
+        pch = 1:length(levels(factor(A)))
+</pre>
+<p>Change <code>pch =</code> with <code>col =</code> in the plot and legend commands if you want to use different colors instead of symbols -- or include both!</p>
+<h3>Pairwise scatter plots for multiple variables</h3>
+<p>The following command creates a single graph with scatter plots between all pairs of numeric variables in a data frame, "mydata". The option <code>gap</code> adjusts the spacing between separate plots,</p>
+<pre>pairs(mydata, gap = 0.5)
+</pre>
+<p>Use the formula method to plot only the three numeric variables x1, x2, and x3 in the data frame mydata.</p>
+<pre>pairs(~ x1 + x2 + x3, data = mydata)
+</pre>
+<hr>
+<h2><a name="trellis"></a>Trellis graphics</h2>
+<p>Trellis graphs are displays having multiple panels on the same page, arranged in a grid or trellis. They are a great tool for displaying the same type of graph separately for multiple groups or subsets of the data all on the same scale. Many options are available to control the features of the graphs. </p>
+<p>The <b>lattice</b> package in R has a variety of tools for making trellis plots. It is included with the basic installation but you need to load the library,</p>
+<pre>library(lattice)</pre>
+<p>The graph types available in the lattice package include the standard ones found also in R's basic graphics package, such as box plots, histograms, and so on. The table below lists just a few of the basic graph types and the relevant command. </p>
+<p>For example, to draw a <b>histogram</b> of a numeric variable "x" separately for four groups all identified by the variable "B" (assume the variables are in the data frame "mydata"), use</p>
+<pre>histogram(~ x | B, data = mydata, layout = c(1,4))</pre>
+<p>The <code>layout</code> option is special to lattice and draws the 4 panels in a grid with 1 column with 4 rows, so that the histograms are stacked and most easily compared visually. </p>
+<p>To draw a bar graph showing the frequency distribution of a categorical variable "A" separately for each group identified in the variable "B",</p>
+<pre>barchart( ~ table(A) | B, data = mydata)</pre>
+<p>This produces horizontal bar graphs, which leaves room for the category labels. To draw the bars vertically instead, while tilting the group labels on the x-axis by 45 degrees so that they fit, </p>
+<pre>barchart(table(A) ~ names(table(A)) | B, data = mydata, scales = list(x=list(rot=45)))
+</pre>
+<p>As a third example, draw a <b>scatter plot</b> to show the relationship between the numeric variables "y" and "x" separately for each group in the variable "B". The <code>pch</code> option in this example replaces the default plot symbol with a filled dot, and the <code>aspect</code> option sets the relative lengths of the vertical and horizontal axes.</p>
+<pre>xyplot(y ~ x | B, data = mydata, pch = 16, aspect = 0.7)
+</pre>
+<p>This doesn't even begin to describe what's possible using the lattice package. Crawley has a few more examples of trellis graphics in <i>The R Book</i>. Sarkar (2008) gives a complete description. See these books on the "Books" tab of the Biology 501 course page. </p>
+<p><small>Table showing a few of the commonly used plotting commands in the lattice package. Each command requires a formula describing the relationship between the plotted variables and the variable defining different groups. Formula structures for the basic graph types are shown in the right column. "x" and "y" are numeric variables, whereas "A" is a categorical variable (character or factor). "B" is a factor or character variable that will define the groups or subsets of the data frame to be plotted in separate panels. A separate plot in the graphics window will be made for each of the groups defined by the variable "B".</small>  </p>
+
+<div class="dataTables_wrapper" id="wp-table-reloaded-id-1-no-1_wrapper"><table id="wp-table-reloaded-id-1-no-1" class="wp-table-reloaded wp-table-reloaded-id-1">
+<thead>
+	<tr class="row-1"><th class="column-1 sorting_disabled" rowspan="1" colspan="1" style="width: 70px;">Command</th><th class="column-2 sorting_disabled" rowspan="1" colspan="1" style="width: 87px;">Graph type</th><th class="column-3 sorting_disabled" rowspan="1" colspan="1" style="width: 347px;">Command formula structure</th></tr>
+</thead>
+
+<tbody><tr class="row-2">
+		<td class="column-1"><code>barchart</code></td><td class="column-2"><code>bar graph</code></td><td class="column-3"><code>barchart(~table(A) | B, data=mydata)</code></td>
+	</tr><tr class="row-3">
+		<td class="column-1"><code>bwplot</code></td><td class="column-2"><code>box plot</code></td><td class="column-3"><code>bwplot(x ~ A | B, data=mydata)</code></td>
+	</tr><tr class="row-4">
+		<td class="column-1"><code>histogram</code></td><td class="column-2"><code>histogram</code></td><td class="column-3"><code>histogram (~x | B, data=mydata)</code></td>
+	</tr><tr class="row-5">
+		<td class="column-1"><code>stripplot</code></td><td class="column-2"><code>strip chart</code></td><td class="column-3"><code>stripplot(x ~ A | B, data=mydata, jitter=TRUE)</code></td>
+	</tr><tr class="row-6">
+		<td class="column-1"><code>xyplot</code></td><td class="column-2"><code>scatter plot</code></td><td class="column-3"><code>xyplot(y ~ x | B, data=mydata)</code></td>
+	</tr></tbody></table></div>
+
+																	</div><!-- .entry-content -->
+				</div><!-- #post-## -->
+
+				
+			<div id="comments">
+
+
+
+
+</div><!-- #comments -->
+
+
+			</div><!-- #content -->
+		</div><!-- #container -->
+
+
+		<div id="primary" class="widget-area" role="complementary">
+			<ul class="xoxo">
+
+<li id="search-2" class="widget-container widget_search"><form role="search" method="get" id="searchform" class="searchform" action="https://www.zoology.ubc.ca/~schluter/R/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s">
+					<input type="submit" id="searchsubmit" value="Search">
+				</div>
+			</form></li><li id="text-5" class="widget-container widget_text"><h3 class="widget-title">Navigate this page</h3>			<div class="textwidget"><ul>
+<li><a href="https://www.zoology.ubc.ca/~schluter/R/display/#table1">Frequency tables</a></li>
+<li><a href="https://www.zoology.ubc.ca/~schluter/R/display/#tapply">Tables of statistics</a></li>
+<li><a href="https://www.zoology.ubc.ca/~schluter/R/display/#graphs">Drawing graphs in R</a></li>
+<li><a href="https://www.zoology.ubc.ca/~schluter/R/display/#graphs1">Graphs, one variable</a></li>
+<li><a href="https://www.zoology.ubc.ca/~schluter/R/display/#graphs2">Graphs, two variables</a></li>
+<li><a href="https://www.zoology.ubc.ca/~schluter/R/display/#graphs3">Graphs, multiple variables</a></li>
+<li><a href="https://www.zoology.ubc.ca/~schluter/R/display/#trellis">Trellis graphics</a></li>
+</ul></div>
+		</li>			</ul>
+		</div><!-- #primary .widget-area -->
+
+	</div><!-- #main -->
+
+	<div id="footer" role="contentinfo">
+		<div id="colophon">
+
+
+
+			<div id="site-info">
+				<a href="https://www.zoology.ubc.ca/~schluter/R/" title="R tips pages" rel="home">
+<!--					R tips pages  -->
+					© Dolph Schluter 2009-2015				</a>
+			</div><!-- #site-info -->
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform" rel="generator">Powered by WordPress</a>
+			</div><!-- #site-generator -->
+
+		</div><!-- #colophon -->
+	</div><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+<script type="text/javascript" src="./Display _ R tips pages_files/jquery.datatables.min.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+jQuery(document).ready(function($){
+	$("#wp-table-reloaded-id-1-no-1").dataTable({"oLanguage":{"sUrl": "https://www.zoology.ubc.ca/~schluter/R/wp-content/plugins/wp-table-reloaded/languages/datatables/lang-en_US.txt"}, "aaSorting": [], "bSortClasses": false, "asStripClasses":[], "bSort": false, "bPaginate": false, "bLengthChange": false, "bFilter": false, "bInfo": false});
+});
+/* ]]> */
+</script>
+
+</body></html>

@@ -1,0 +1,177 @@
+/*
+Theme Name: Responsive TwentyTen
+Theme URI: http://wordpress.org/
+Description: Responsive child theme for TwentyTen.
+Author: Todd Halfpenny
+Version: 0.1
+Template: twentyten
+Tags: black, blue, white, two-columns, fluid, responsive, custom-header, custom-background, theme-options, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style
+*/
+
+@import url("../twentyten/style.css");
+  
+#wrapper,
+#access,
+#access .menu-header,
+div.menu,
+#colophon,
+#branding,
+#main,
+#footer {
+  width: 940px;
+}
+
+#access {
+  max-width: 940px;
+}
+
+#main {
+    float:left;
+  }
+
+.entry-content img.size-full {
+  border: 1px solid #333;
+  padding: 5px;
+  -moz-box-shadow: 2px 2px 10px #333;
+  -webkit-box-shadow: 2px 2px 10px #333;
+}
+
+iframe, object, embed{
+  max-width: 100%;
+}
+
+.wp-caption {
+	max-width: 100% !important; /* When images are too wide for containing element, force them to fit. */
+	height: auto; /* Override height to match resized width for correct aspect ratio. */
+}
+
+.wp-caption img {
+  height: auto;
+}
+
+@media screen and (max-width: 1024px) {
+  #wrapper {
+    margin: 20px auto;
+    width: 94%;
+  }
+  
+  #access,
+  #access .menu-header,
+  div.menu,
+  #colophon,
+  #branding,
+  #main,
+  #footer {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  #branding  {
+    overflow:hidden;
+  }
+  
+  /* added extra lines from the next release of twentyten */
+#content img {
+  max-width: 100%;
+  }
+  
+  /*
+  LAYOUT: Two columns
+  DESCRIPTION: Responsive.
+  940 = 720 + 220
+  100% = 76.5957447% + 23.40425535% 
+  */
+  
+  #container {
+    float: left;
+    margin: 0 -25.5319149% 0 0;
+    width: 99%;
+  }
+  #content {
+    width: 68.5957447%;
+    /*margin: 0 29.787234% 0 20px;*/
+    margin: 0 29.787234% 0 20px;
+  }
+  #primary,
+  #secondary {
+    overflow: hidden;
+    width: 23.40425535% /* 200px / 940px */ 
+  }
+  
+  #site-title, #site-info {
+    width:74.4680851% /* 700px / 940px */
+  }
+  
+  #footer-widget-area .widget-area,
+  #site-generator,
+  #site-description  {
+    width: 23.40425535% /* 200px / 940px */ 
+  }
+
+}
+
+
+@media screen and (max-width: 660px) {
+  #wrapper {
+    margin: 5px auto;
+    width: 90%;
+    padding: 0 3%;
+  }
+  
+  #access,
+  #access .menu-header,
+  div.menu,
+  #colophon,
+  #branding,
+  #main,
+  #footer {
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  #branding  {
+    overflow:hidden;
+  }
+
+  #site-title {
+   width: 100%;
+  }
+
+  #container {
+    float: left;
+    width: 100%;
+    overflow: auto;
+  }
+  
+  #content {
+    width: 93%;
+    margin: 0 0px 0 0px;
+  }
+
+  .alignleft, img.alignleft, #content img.alignleft, .alignright, img.alignright, #content img.alignright {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    float: none;
+  }
+  
+  #primary,
+  #secondary {
+    float: left;
+    overflow: hidden;
+    width: 99%; 
+  }
+  #secondary {
+    clear: left;
+  }
+
+  #site-generator, #site-description, #site-info, #site-title {
+	clear: left;
+    float: left;
+	width: 95%;
+    padding: 0;
+    margin: 0;
+  }
+
+}
