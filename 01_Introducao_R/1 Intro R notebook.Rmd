@@ -1,0 +1,204 @@
+---
+title: "1 Conceitos Básicos"
+author: "Prof. Eduardo"
+output:
+  html_notebook: default
+  html_document: default
+---
+
+
+#Introdução ao R [^1]
+[^1]: Baseado nas aulas de Roger Peng(JHS) e no livro "R for Data Science, Garrett Grolemund e Hadley Wickham)
+
+
+## Iniciando pelo básico
+
+Vamos inicialmente usar R como uma calculadora!
+
+
+```{r}
+1 / 40 * 1000
+(50 + 31 + 7) / 3
+cos(pi / 2)
+```
+
+Olhando R sob esse ponto de vista, é possível entender que a implementação da Linguagem R incorpora outros paradigmas de Linguagens de programação (*Paradigma funcional*), além daqueles que normalmente já estamos acostumados, como o *Paradigma de orientação de objetos*.
+
+Na verdade, na Linguagem R tudo é __objeto__! 
+
+
+## Iniciando uma variável do um valor
+
+Quando atribuímos um valor a uma variável, estamos na verdade criando um objeto, onde um dos seus atributos é o valor daquela variável.
+
+No R novos objetos são criados com `<-` (*verifique qual atalho pode ser usado no seu Sistema operacional para gerar*) `<-`:
+
+```{r}
+x <- 3 * 4
+```
+
+Todas os objetos criados em R são criados da mesma forma, usando um comando de __atribuição__: 
+
+```{r eval = FALSE}
+nome_do_objeto <- valor
+```
+Ao ler que o código, é como se fosse "o nome do objeto obtém valor"!
+
+Você fará muitas atribuições e digitar ` <-` pode se tornar cansativo.
+
+Tente não usar `=`: vai funcionar, mas vai causar confusão mais tarde.
+
+Em vez disso, use o atalho de teclado do RStudio: Alt + - (sinal de subtração).
+Observe que o RStudio automaticamente inclui espaços ` <-`, o que é uma boa prática de formatação de código.
+
+
+## Inspecionando os valores das variáveis
+
+```{r}
+ 
+x <- 5    ## nada é impresso
+
+#`[1]` indica que o primeiro elemento contido em `x` é o valor `5`.
+
+x         ## auto-printing 
+
+print(x)  ## o valor é impresso como resultado (nunca é usado!)
+          ## já que a opção anterior é mais prática
+```
+
+
+*Obs*: `#` é usado para inserir um comentário em R.  Nada será executado.
+
+
+Outras atribuições:
+```{r{  
+x <- 1:20 
+x
+
+x <- 1 # O valor anterior é sobrescrito 
+x
+
+msg <- "hello"
+
+
+#Para fazer a inicialização e ao mesmo tempo imprimir use
+(x <- 1:10)  # raramente usado  
+
+```
+__Obs:__ O operador `:` é usado para criar sequência de inteiros.
+
+
+## Como nomear suas variáveis
+
+Nomes de objeto devem começar com uma letra, e conter apenas letras, números, `_` e  `.`. Se você quer que seus nomes sejam de fácil associação, então a recomendação é usar um padrão de codificação.
+
+Uma sugestão é o padrão *snake case* (__meu_modelo__) onde você separa palavras em letras minúsculas com `_`
+
+Exemplos:
+
+```{r, eval = FALSE}
+eu_uso_snake_case
+otherPeopleUseCamelCase
+some.people.use.periods
+E_algumas.Pessoas_NAOusamPadrao
+```
+
+
+
+##Atalhos :
+
+```{r}
+esse_e_um_nome_longo <- 2.5
+```
+
+Para inspecionar esse objeto, tente usar o funcionalidade __auto completar__ do [R Studio](www.rstudio.com): Digete "esse", pressione TAB, adicione caracteres até formar um prefixo único, então pressione ENTER.
+
+Ooops, cometeu um erro! 
+
+`esse_e_um_nome_longo` deve ter valor 3.5 não 2,5.
+
+Use outro atalho de teclado para ajudá-lo a corrigi-lo.  Digite `esse`, em seguida, pressione `Ctrl/Cmd` + `seta para cima`. Isso irá listar todos os comandos que você digitou que começam com aqueles caracteres. Use as setas para navegar e, em seguida, pressione `ENTER` para digitar novamente o comando. 
+Mude de 2.5 a 3.5 e execute novamente.
+
+
+Outro detalhe:
+```{r}
+r_rocks <- 2 ^ 3
+```
+
+Vamos tentar inspecionar esta variável:
+
+```{r, eval = FALSE}
+r_rock
+#> Error: object 'r_rock' not found
+R_rocks
+#> Error: object 'R_rocks' not found
+```
+
+Há um contrato implícito entre você e o __R__: O __R__ fará toda a computação tediosa para você, mas em troca, você deve ser completamente preciso em suas instruções.
+Ele é *case sensitive*
+
+
+## Use a assistência da interface
+Digite o código abaixo e note a assistência com as aspas emparelhadas:
+```{r}
+x <- "hello world"
+```
+
+Aspas e parênteses devem sempre vir em um par. RStudio faz o seu melhor para ajudá-lo, mas ainda é possível errar e acabar com uma incompatibilidade. Se isso acontecer, R irá mostrar-lhe o caractere de continuação de "+":
+
+```{r eval = FALSE}
+x <- "hello
+#+ 
+```
+O `+` diz-lhe que R está esperando por mais alguma entrada. Ele acha que você ainda não digitou tudo. Normalmente isso significa que você tenha esquecido ou um ` "` ou um `)`. Adicione o par ausente ou pressione ESC para abortar a expressão e tente novamente.
+
+
+## Chamando funções
+
+R tem uma grande coleção de funções internas que são chamados assim:
+
+```{r eval = FALSE}
+function_name(arg1 = val1, arg2 = val2, ...)
+```
+
+Vamos tentar usar o `seq()`, que cria uma **seq**uência de números.
+Digite 'se' e pressione `TAB`. Um *popup* mostra os possíveis comandos (*funções*). Digitando mais (um `q`), ou usando as `setas cima/baixo`, você pode selecionar a função 'seq()'.
+
+
+Observe a dica flutuante que aparece, lembrando os argumentos da função e seu propósito.
+Se você quiser mais ajuda, pressione F1 para obter todos os detalhes no guia de ajuda no painel inferior direito.
+
+Pressione `TAB` uma vez mais, quando você selecionar a função que você quer. RStudio adicionará os parênteses correspondentes, abrindo `(` e fechando `)` parênteses para você. Digite os argumentos '1, 10' e pressione `ENTER`.
+
+
+```{r}
+seq(1, 10)
+```
+
+
+Se você fizer uma atribuição, não verá o valor da atribuição. Mas como vimos antes, é fácil verificar o valor da variável logo em seguida:
+
+```{r}
+y <- seq(1, 10, length.out = 5)
+y
+```
+
+Um atalho pode ser inserir o commando entre parênteses (pouco usado): 
+```{r}
+(y <- seq(1, 10, length.out = 5))
+```
+
+Você também pode ver todas as variáveis/objetos criados no painel "Variáveis de Ambiente" no 'R Studio'
+
+![Variáveis de ambiente visualizados no painel "Environment" no "RStudio"](figuras/rstudio-env.png)
+
+##[R Markdown](http://rmarkdown.rstudio.com)
+Esse arquivo foi preparado usando o [R Markdown](http://rmarkdown.rstudio.com) Notebook. Quando o código é executado dentro do Notebook, o resultado é mostrado abaixo do bloco de código. 
+
+O blocs de código são chamados de __chunk__ e podem ser executados clicando o botão de `run` ou posicionando o cursor dentro do __chunck__ e pressionando `Ctrl+Shift+Enter`. 
+
+
+Para adicionar um novo __chunck__ use *insert chunch* na barra de ferramentas ou pressione `Ctrl+Alt+I`.
+
+Ao salvar o seu *notebook* no RStudio, um arquivo *html* também será salvo. (Para visualizar uma prévia do seu notebook em *html*, pressione *preview* na barra de ferramentas ou as teclas `Ctrl+Shift+K`.

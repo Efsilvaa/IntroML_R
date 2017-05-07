@@ -1,0 +1,179 @@
+---
+title: "Introdução R"
+author: "Eduardo F. Silva"
+date: "2015_2"
+output: 
+  html_document: 
+    toc: yes
+---
+
+
+ 
+**Esse é um exemplo de um arquivo Markdown **
+**que gera uma página HTML contendo dados R**
+
+  -Para gerar a página html pressione sobre o botão "knit HTML"   
+  -Se tiver problemas com acentuação reabrir o arquivo usando o menu
+   *File/Reopen with encoding ...* e escolha ISO-8859-1(System default)
+
+---
+
+## O que é R?
+
+O que é R?
+
+## O que é R?
+
+* Introdução
+
+    + R é um poderoso ambiente computacional voltado para **Estatística**, open-source, **Free**, multiplataforma e que incorpora a colaboração de vários pesquisadores espalhados pelo mundo.
+
+ Se você deseja que seu trabalho seja considerado na área de estatística: 
+
+> **Use R!**
+
+* Para provar meu ponto, essa apresentação foi usando um pacote R, e dentro de um ambiente de desenvolvimento R.
+
+## A Linguagem e o ambiente R 
+
+*  O site que hospeda o **Projeto R** é  <http://www.r-project.org>.
+
+> Se vc ainda não instalou o R, inicie por lá!
+
+A base do R vem de uma especificação formal de uma linguagem computacional estatística, desenvolvida por John Chambers e outros nos laboratórios Bell.
+
+* Essa especificação de linguagem foi então chamada de **S** (de "Statistics")
+
+* Então uma versão comercial com recursos adicionais de S foi desenvolvida e comercializada como S-Plus.
+
+
+## A Linguagem e o ambiente R (continuação ...)
+
+*  O site que hospeda o **Projeto R** ?  <http://www.r-project.org>.
+
+* ...
+
+- Pouco depois, um grupo iniciou uma implementa??o open-source, que aos poucos foi sendo incrementada e aperfeiçoada, e hoje praticamente não faz mais sentido pagar por um software que também seja baseado na Linguagem S.
+ 
+- Assim, tanto R e S-Plus podem ser vistos como duas implementações da linguagem S.
+
+
+##Ambiente R
+
+O ambiente R disponibiliza uma grande variedade de métodos estatísticos (modelagem linear e não linear, testes estatísticos clássicos, análises de séries temporais, classificação, clusterização, ...) em conjunto com ferramentas gráficas, além de ser altamente extensível.
+
+Um dos pontos fortes do R é a facilidade com que gráficos de alta qualidade podem ser produzidos para publicação, incluindo diversas simbologias.  As configura??es dos gráficos foram cuidadosamente padronizadas, e ao mesmo tempo permitem que o usuário tenha total controle.
+
+
+
+**Free** e multiplataforma!
+
+
+
+
+## Funcionalidades do R
+
+- É executado em praticamente todas as plataformas/OS (mesmo no PlayStation 3)
+
+- Atualizações constantes (anualmente + bugfix releases); desenvolvimento contínuo.
+
+
+
+## Funcionalidades do R
+
+- Implementação clara e em código aberto; funcionalidades são divididas em pacotes modulares
+
+- Capacidades gráficas sofisticadas e melhores que a maioria dos softwares Estatísticos
+
+- Adequado para um trabalho iterativo (como é a Análise Exploratória de Dados)
+
+- Contém uma linguagem de programação poderosa para a criação de novas funcionalidades/ferramentas (usuário -> programador)
+
+- Comunidade ativa e colaboradora; R-help and R-devel mailing lists and Stack Overflow
+
+
+
+## Free Software
+
+Com *software livre*, você? possui (http://www.fsf.org):
+
+* A liberdade de executar o programa, para qualquer propósito (*liberdade 0*).
+
+* A liberdade de estudar como o programa funciona e adaptá-lo às suas necessidades (*liberdade 1*).
+    + Acesso ao código-fonte é uma pré-condição para isso.
+
+* A liberdade de redistribuir cópias para que você possa ajudar seu vizinho (*liberdade 2*).
+
+* A liberdade de melhorar o programa e liberar suas melhorias ao público, para que toda a Comunidade se beneficie (*liberdade 3*).
+    + Acesso ao código-fonte é uma pré-condição para isso.
+  
+
+
+
+
+## R Design 
+
+O sistema R é dividido conceitualmente em duas partes:
+
+1.  O *pacote* "base" que é baixado do repositório CRAN <http://cran.r-project.org> 
+
+2.  O restante.
+
+>- Existem muitos outros pacotes disponíveis: cerca de 4 mil pacotes no repositório CRAN que foram desenvolvidos por usuários e programadores ao redor do mundo.
+
+>- As pessoas muitas vezes fazem pacotes e disponibilizam em seus sites pessoais;
+    Desta forma, fica difícil acompanhar como esses pacotes estão sendo disponibilizados.
+
+
+
+## Alguns Recursos
+
+Disponibilizado no repositório CRAN <http://cran.r-project.org>
+
+-   An Introduction to R
+
+-   Writing R Extensions
+
+-   R Data Import/Export
+
+-   R Installation and Administration (mostly for building R from
+    sources)
+
+-   R Internals (not for the faint of heart)
+
+## R Studio http://www.rstudio.com
+
+RStudio é um ambiente de desenvolvimento integrado (IDE) para R. 
+
+* Inclui:
+
+- Um console "R", e um editor com realce de sintaxe que suporta a execução de código.
+
+>- Ferramentas para gestão de plotagem, históricos, depuração de código e espaço de trabalho.
+
+>- RStudio está disponível nas edições comerciais e de código aberto e é executado no desktop (Windows, Mac e Linux) ou em um navegador conectado ao servidor RStudio ou RStudio Pro servidor (Debian/Ubuntu, RedHat/CentOS e SUSE Linux).
+
+## R Markdown
+
+Markdown é uma sintaxe de formatação simples para a criação de documentos do MS Word, PDF e HTML.
+
+Para obter mais detalhes sobre como usar o Markdown R ver <http://rmarkdown.rstudio.com>.
+
+Na verdade, é implementado por pacotes do R, que foram disponibilizados com maior flexibilidade dentro R Studio.
+
+A grande vantagem deste pacote é que os comandos em R (e seus resultados incluindo gráficos) podem ser facilmente incorporados ao documento e executados dinamicamente na geração dos relatórios de pesquisa.
+
+Facilita a difícil tarefa de publicar os resultados de estudos estatísticos, bem como de publicar também o processo de análise. 
+
+
+## Inserção de código R
+
+```{r}
+summary(cars)
+```
+
+## Inserção de gráfico por meio de comando
+
+```{r, echo=FALSE}
+plot(cars)
+```
