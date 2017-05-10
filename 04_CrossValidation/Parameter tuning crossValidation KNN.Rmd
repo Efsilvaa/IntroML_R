@@ -1,5 +1,5 @@
 ---
-title: "Problema de Regress„o utilizando KNN"
+title: "Problema de Regress√£o utilizando KNN"
 author: "Prof. Eduardo F. Silva"
 output:
   html_document: default
@@ -35,14 +35,14 @@ load("../Dados_RData/regressaoKNNcv_pp.Rdata")
 
 ##Analisando e visualizando os dados
 ```{r, echo=TRUE}
-pp <- pp  #para parar o aviso de simbolo n„o existente
+pp <- pp  #para parar o aviso de simbolo n√£o existente
 head(pp)
 str(pp)
 summary(pp)
 ```
 
 ##Dividindo os dados em Treinamento e Test
-Usando a funÁ„o `createDataPartition()` do pacote `caret`
+Usando a fun√ß√£o `createDataPartition()` do pacote `caret`
 ```{r,echo=TRUE}
 set.seed(300)
 indiceTrain <- createDataPartition(y = pp$valor,p = 0.75,list = FALSE)
@@ -51,9 +51,9 @@ testing <- pp[-indiceTrain,]
 ```
 
 
-##Checando a distribuiÁ„o dos dados de treinamento e teste
+##Checando a distribui√ß√£o dos dados de treinamento e teste
 
-A funÁ„o createDataPartition() procura sempre manter a distribuiÁ„o da amostra
+A fun√ß√£o createDataPartition() procura sempre manter a distribui√ß√£o da amostra
 ```{r}
 pp$grupo = "Treinamento"
 pp$grupo[-indiceTrain]="Teste"  
@@ -63,15 +63,15 @@ m + geom_density(alpha=0.4)
 ```
 
 ##Preprocessamento dos dados
-kNN È sensivel a distribuiÁ„o dos dados por vari·vel.
+kNN √© sensivel a distribui√ß√£o dos dados por vari√°vel.
 
 
-Ser· necess·rio normalliz·-los.
+Ser√° necess√°rio normalliz√°-los.
 O pacote `caret` permite incluir o preprocessamento.
-No caso, ser· usado `center` e `scale`
+No caso, ser√° usado `center` e `scale`
 
 ```{r}
-#A coluna classe sera considerada 
+#A coluna classe n√£o ser√° considerada por ser uma categoria (fator)
 trainX <- training[,names(training) != "valor"]
 preProcValues <- preProcess(x = trainX,method = c("center", "scale"))
 preProcValues
@@ -79,8 +79,8 @@ preProcValues
 
 ##Treinamento 
 
-Cada modelo possui um conjunto de par‚metros que podem ser alterados para o ajuste.
-Para saber quais s„o os par‚metros de mada modelo, uma opÁ„o È ir na p·gina do caret [https://topepo.github.io/caret/available-models.html](https://topepo.github.io/caret/available-models.html) e realizar a busca pelo modelo 
+Cada modelo possui um conjunto de par√¢metros que podem ser alterados para o ajuste.
+Para saber quais s√£o os par√¢metros de mada modelo, uma op√ß√£o √© ir na p√°gina do caret [https://topepo.github.io/caret/available-models.html](https://topepo.github.io/caret/available-models.html) e realizar a busca pelo modelo 
 ```{r}
 set.seed(400)
 ctrl <- trainControl(method = "repeatedcv",repeats = 3) 
@@ -97,8 +97,8 @@ knnFit <- train(valor ~ PredictorA + PredictorB,
 knnFit
 
 ```
-##Variando os par‚metros automaticamenteusando
-Existe a opÁ„o de se usar `tuneLenght` para definir o tamanho da faixa dos par‚mtros
+##Variando os par√¢metros automaticamenteusando
+Existe a op√ß√£o de se usar `tuneLenght` para definir o tamanho da faixa dos par√¢mtros
 
 ```{r}
 knnFit <- train(valor ~ PredictorA + PredictorB, data = training, method = "knn", trControl = ctrl, preProcess = c("center","scale"), tuneLength = 20)
