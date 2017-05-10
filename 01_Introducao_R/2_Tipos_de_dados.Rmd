@@ -6,43 +6,43 @@ author: Prof. Eduardo
 
 
 # Tipos de Dados (*Classes e Objetos*)
-__Tudo em R é objeto!!__
-R tem cinco classes básicas ou *atômicas* de objetos:
+__Tudo em R Ã© objeto!!__
+R tem cinco classes bÃ¡sicas ou *atÃ´micas* de objetos:
 -   caractere (string)
--   numérico (números reais)
+-   numÃ©rico (nÃºmeros reais)
 -   inteiro
--   números complexos 
--   Valores lógicos (TRUE/FALSE)
+-   nÃºmeros complexos 
+-   Valores lÃ³gicos (TRUE/FALSE)
 
 ```{r}
 #Caractere
 x <- "Bem vindo"
 ```
 
-## Números
--   Números em R são geralmente tratados como objetos (ex. double
+## NÃºmeros
+-   NÃºmeros em R sÃ£o geralmente tratados como objetos (ex. double
     precision real numbers)
--   Se você precisa especificamente de um inteiro (raramente), é necessário especificar o sufuxo ```L```
+-   Se vocÃª precisa especificamente de um inteiro (raramente), Ã© necessÃ¡rio especificar o sufuxo ```L```
 
--   O valor ```NaN``` representa um valor não identificado (*"not a number"*);
-    e.g. 0 / 0; ```NaN``` pode também representar valores ausentes (não se preocupe agora com isso, mas mostra que a linguagem foi concebida para identificar essa situação )
+-   O valor ```NaN``` representa um valor nÃ£o identificado (*"not a number"*);
+    e.g. 0 / 0; ```NaN``` pode tambÃ©m representar valores ausentes (nÃ£o se preocupe agora com isso, mas mostra que a linguagem foi concebida para identificar essa situaÃ§Ã£o )
 
 ```{r}
-#Numérico
+#NumÃ©rico
 x <- 5
 x
 is.numeric(x)
 is.integer(x)
 ```
 ```{r}
-#Inteiro (apenas um detalhe. Raramente é importante)
+#Inteiro (apenas um detalhe. Raramente Ã© importante)
 x <- 5L
 x
 is.numeric(x)
 is.integer(x)
 ```
 ```{r}
-#Números Complexos (Uso não muito comum)
+#NÃºmeros Complexos (Uso nÃ£o muito comum)
 x <- 1 + 4i
 x
 is.numeric(x)
@@ -50,7 +50,7 @@ is.integer(x)
 is.complex(x)
 ```
 ```{r}
-#Lógico
+#LÃ³gico
 x <- TRUE
 x
 x <- True
@@ -62,11 +62,11 @@ x
 #Estruturas de dados
 
 ##Vetores
-A estrutura mais básica do __R__ é um vetor
--   Um vetor pode conter apenas objetos da mesma classe básica
--   Existe um outro objeto chamado *lista*, que é representado como um vetor, mas pode conter objetos de classes diferentes
--   Vetores vazios podem ser criados com a função ```vector() ```.
-- O operador `:` é usado para gerar/representar uma sequência de números.
+A estrutura mais bÃ¡sica do __R__ Ã© um vetor
+-   Um vetor pode conter apenas objetos da mesma classe bÃ¡sica
+-   Existe um outro objeto chamado *lista*, que Ã© representado como um vetor, mas pode conter objetos de classes diferentes
+-   Vetores vazios podem ser criados com a funÃ§Ã£o ```vector() ```.
+- O operador `:` Ã© usado para gerar/representar uma sequÃªncia de nÃºmeros.
 
 ```r
  x <- 1:20 
@@ -75,7 +75,7 @@ A estrutura mais básica do __R__ é um vetor
 
 ## Criando Vetores
 
-A função `c()` concatena os seus argumentos em um vetor.
+A funÃ§Ã£o `c()` concatena os seus argumentos em um vetor.
 
 ```r
  x <- c(0.5, 0.6)       ## numeric
@@ -92,7 +92,7 @@ A função `c()` concatena os seus argumentos em um vetor.
  
 ```
 
-Para a criação de um vetor *vazio* podemos usar a função `vector()`
+Para a criaÃ§Ã£o de um vetor *vazio* podemos usar a funÃ§Ã£o `vector()`
 
 ```r
  x <- vector("numeric", length = 10) 
@@ -103,15 +103,15 @@ Para a criação de um vetor *vazio* podemos usar a função `vector()`
 
 ## Attributes
 
-Os objetos em possuem vários atributos:
+Os objetos em possuem vÃ¡rios atributos:
 
     -   nomes, dimnames
-    -   dimensão (e.g. matrizes, arrays)
+    -   dimensÃ£o (e.g. matrizes, arrays)
     -   classe
     -   comprimento
-    -   outras atributos definidos pelo usuário/metadata
+    -   outras atributos definidos pelo usuÃ¡rio/metadata
 
-O nome dos atributos de um objeto pode ser acessado usando  a função `attributes()`.
+O nome dos atributos de um objeto pode ser acessado usando  a funÃ§Ã£o `attributes()`.
 
 
 ```r
@@ -121,7 +121,7 @@ attributes(x)"
 
 ## Misturando Objetos
 
-Quando objetos diferente são misturados em um vetor,  a *coerção* ajusta os tipos de modo que todos elementos mantenham sejam da mesma classe.
+Quando objetos diferente sÃ£o misturados em um vetor,  a *coerÃ§Ã£o* ajusta os tipos de modo que todos elementos mantenham sejam da mesma classe.
 
 ```r
  y <- c(1.7, "a")   ## character
@@ -131,9 +131,9 @@ Quando objetos diferente são misturados em um vetor,  a *coerção* ajusta os tipo
 
 
 
-## Coerção explícita
+## CoerÃ§Ã£o explÃ­cita
 
-Objetos de uma classe podem ser sua classe alterada usando as funções `as.*()`
+Objetos de uma classe podem ser sua classe alterada usando as funÃ§Ãµes `as.*()`
 
 ```r
  x <- 0:6
@@ -143,7 +143,7 @@ Objetos de uma classe podem ser sua classe alterada usando as funções `as.*()`
  as.character(x)   # "0" "1" "2" "3" "4" "5" "6"
 ```
 
-Coerções não permitidas geram  `NA` (Não avaliado).
+CoerÃ§Ãµes nÃ£o permitidas geram  `NA` (NÃ£o avaliado).
 
 ```r
  x <- c("a", "b", "c")
