@@ -1,0 +1,27 @@
+---
+title: "Exercício Wine Notebook"
+output: html_notebook
+---
+
+
+
+#Baixando os dados da Internet
+
+```{r}
+dataurl <- "https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data"
+download.file(url = dataurl, destfile = "wine.data")
+wine_df <- read.csv("wine.data", header = FALSE)
+```
+
+#Checando os dados
+```{r}
+colnames(wine_df)
+
+head(wine_df)
+
+str(wine_df)
+
+save(wine_df,file = "Dados_RData/wine_data.Rdata")
+
+```
+

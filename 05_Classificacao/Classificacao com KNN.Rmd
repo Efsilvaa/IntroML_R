@@ -33,7 +33,7 @@ library(caret)
 
 ##Carregamento dos dados
 ```{r}
-load("../Dados_RData/regressaoKNNcv_pp.Rdata")
+load("../Dados_RData/twoClassData.Rdata")
 ```
 
 
@@ -45,7 +45,6 @@ pp <- pp  #para parar o aviso de simbolo não existente
 head(pp)
 str(pp)
 summary(pp)
-pp <- pp[,-4]  #retirando a coluna valor
 ```
 
 ##Visualizando os dados
@@ -53,7 +52,7 @@ pp <- pp[,-4]  #retirando a coluna valor
 m <- ggplot(data = pp, aes(x = PredictorA, y = PredictorB,
                            colour = classes) )
 m + geom_point(aes(shape = classes),size = 3) +
-    theme(legend.position="top")
+    theme(legend.position = "top")
 ```
 
 ##Visualiazndo a distribuição dos dados categóricos
@@ -75,8 +74,6 @@ round(prop.table(table(pp$classes))*100,digits = 1)
 O dados estão divididos entre as duas classes em proporções próximas (53.4% e 46.6%).
 
 Ou seja, baseado nesta análise preliminar, para um dado novo a probabilidade de que ele pertança a classe 1 é de 53.4%.
-
-
 
 
 ##Dividindo os dados em Treinamento e Test
@@ -102,7 +99,7 @@ prop.table(table(pp[-indiceTrain,]$classes))*100
 ```
 
 ##Preprocessamento dos dados
-kNN é sensivel a distribuição dos dados por variável/atributo/features, pois as distâncias são calculadas em relação a escala de cada eixo. 
+kNN é sensivel a distribuição dos dados por variável/atributo/features, pois as distâncias são calculadas em relação a escala de cada eixo, como já explicado. 
 
 No nosso caso as escalas já estão praticamente normalizadas.  Contudo, se precisássemos dos dados normalizados para alguma análise, poderíamos obter tais dados usando a função `PreProcess` do pacote `caret`.
 Vale lembrar que o pacote `caret` permite incluir o preprocessamento diretamento na função `train`.
@@ -134,19 +131,48 @@ knnFit <- train(classes ~ PredictorA + PredictorB,
                 preProcess = c("center","scale"),
                 #Definindo a faixa de parametros a ser usada
                  tuneLength = 20)
-
-knnFit
-
 ```
 
 
-##Avaliando a Matriz de Confusão 
+##Avaliando a Matriz de Confusão (os dados de teste)
 ```{r}
 knnPredict <- predict(knnFit,newdata = testing )
+
+head(knnPredict)
+head(testing$classes)
 #Obtendo a matriz de confusão
-confusionMatrix(knnPredict, testing$classes )
+
+cmknn <- confusionMatrix(knnPredict, testing$classes )
+
+# apresenta todas as métricas
+confusionMatrix(knnPredict, testing$classes, mode = "everything" )
+```
+
+#----------------------------------até aqui pronto!!!!
+
+#Criando tables para o exemplo comparando métricas
+
+```{r}
+cmTeste <- matrix(c(0,0,85,201),ncol=2,byrow=TRUE)
+colnames(cmTeste) <- c("Recorr","Não Recorr")
+rownames(cmTeste) <- c("Recorr","Não Recorr")
+cmTeste <- as.table(cmTeste)
+
+confusionMatrix(cmTeste, mode = "everything" )
+
+
+cmTeste <- matrix(c(85,201,0,0),ncol=2,byrow=TRUE)
+colnames(cmTeste) <- c("Recorr","Não Recorr")
+rownames(cmTeste) <- c("Recorr","Não Recorr")
+cmTeste <- as.table(cmTeste)
+
+confusionMatrix(cmTeste, mode = "everything" )
+
+
 
 ```
+
+
 
 #Output de kNN fit
 ```{r}
